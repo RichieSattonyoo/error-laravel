@@ -1,0 +1,49 @@
+How to make laravel application on HomeServices project
+
+PART-1
+1. composer create-project laravel/laravel HomeServices "8.*"
+2. composer require livewire/livewire
+3. create database
+4. change database name in .env file
+5. run application
+6. download template and extrack zip file
+7. create folder layout and create file base.blade.php
+inside resource/view
+8. add template in base.blade.php with {{ asset('') }}
+9. php artisan make:livewire HomeComponent
+10. copy and pase layout in home-component.blade.php
+11. add ->layout('layouts.base'); in folder app/http/Livewire -> HomeComponent.php
+12. add new route is HomeComponent in web.php
+13. move asset and images folder in template to public folder
+14. run application php artisan serve
+
+PART-2
+15. install jetstream -> composer require laravel/jetstream:*
+16. install php artisan jetstream:install livewire
+17. npm install
+18. npm run dev
+19. add users tables migration  $table->string('utype')->default('CST');
+20. migrate table -> php artisan migrate
+21. check users is login or not
+22. create logout logout form
+23. change utype on mysql database
+24. create middleware -> php artisan make:middleware AuthAdmin
+25. create middleware -> php artisan make:middleware AuthSprovider
+26. run application -> php artisan serve
+27. check authen on AuthAdmin middleware on app/http/middleware
+28. check authen on AuthSprovider middleware on app/http/middleware
+29. apple middleware authadmin and authsprovider in app/http/middleware/kernel.php
+30. change RouteServiceProvider.php from public const HOME = '/dashboard'; to route '/' path
+31. create new component -> php artisan make:livewire Admin/AdminDashboardComponent
+32. create new component -> php artisan make:livewire Sprovider/SproviderDashboardComponent
+33. create new component -> php artisan make:livewire Customer/CustomerDashboardComponent
+34. add ->layout('layouts.base'); in folder app/http/Livewire -> AdminDashboardComponent.php
+35. add ->layout('layouts.base'); in folder app/http/Livewire -> CustomerDashboardComponent.php
+36. add ->layout('layouts.base'); in folder app/http/Livewire -> SproviderDashboardComponent.php
+37. add <h1>Admin Dashborad</h1> in  admin-dashboard-component.blade.php
+38. add <h1>Customer Dashborad</h1> in  customer-dashboard-component.blade.php
+39. add <h1>Service Provider Dashborad</h1> in  sprovider-dashboard-component.blade.php
+40. create route middleware for Customer in web.php
+41. create route middleware for Service Provider in web.php
+42. create route middleware for Admin in web.php
+43. add layout route admin.dashborad in base.blade.php
